@@ -23,12 +23,16 @@ class NeuralNetwork:
     def __init__(self): #初期設定
         self.neuron = Neuron() #ニューロンのインスタンス
         self.w = [1.5, 0.75, -1] #重み
+        self.bias = 1.0 # バイアス 0はニューロンが平常で、大きくなるにつれ興奮しやすくなる
 
     def commit(self, input_data): #実行
         self.neuron.set_input(input_data[0] * self.w[0])
         self.neuron.set_input(input_data[1] * self.w[1])
         self.neuron.set_input(input_data[2] * self.w[2])
+        self.neuron.set_input(self.bias)
         return self.neuron.get_output()
+
+
 
 neural_network = NeuralNetwork()
 
